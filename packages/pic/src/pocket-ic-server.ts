@@ -69,7 +69,7 @@ export class PocketIcServer {
   }
 
   private static getBinPath(): string {
-    return resolve(__dirname, '..', 'pocket-ic');
+    return process.env['POCKET_IC_BIN'] || resolve(__dirname, '..', 'pocket-ic');
   }
 
   private static async assertBinExists(binPath: string): Promise<void> {
