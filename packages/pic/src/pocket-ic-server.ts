@@ -25,8 +25,8 @@ export class PocketIcServer {
     this.url = `http://127.0.0.1:${portNumber}`;
   }
 
-  public static async start(): Promise<PocketIcServer> {
-    const binPath = this.getBinPath();
+  public static async start(bin?: string): Promise<PocketIcServer> {
+    const binPath = bin || this.getBinPath();
     await this.assertBinExists(binPath);
 
     const pid = process.ppid;
@@ -69,7 +69,7 @@ export class PocketIcServer {
   }
 
   private static getBinPath(): string {
-    return process.env['POCKET_IC_BIN'] || resolve(__dirname, '..', 'pocket-ic');
+    return resolve(__dirname, '..', 'pocket-ic');
   }
 
   private static async assertBinExists(binPath: string): Promise<void> {

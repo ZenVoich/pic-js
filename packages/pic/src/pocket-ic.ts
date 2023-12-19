@@ -71,8 +71,8 @@ export class PocketIc {
    * const pic = await PocketIc.create();
    * ```
    */
-  public static async create(): Promise<PocketIc> {
-    const server = await PocketIcServer.start();
+  public static async create(binPath?: string): Promise<PocketIc> {
+    const server = await PocketIcServer.start(binPath);
     const client = await PocketIcClient.create(server.getUrl());
 
     return new PocketIc(client, server);
