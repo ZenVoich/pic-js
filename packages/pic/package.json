@@ -20,14 +20,10 @@
     "testing-tools"
   ],
   "files": [
-    "dist",
-    "postinstall.mjs"
+    "dist"
   ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "scripts": {
-    "postinstall": "node ./postinstall.mjs"
-  },
   "dependencies": {
     "bip39": "^3.1.0"
   },
